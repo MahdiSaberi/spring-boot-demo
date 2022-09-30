@@ -16,7 +16,7 @@ public class MyController {
 
     @GetMapping
     public String myHome(){
-        userRepository.save(new User("mohsen","talaati","mositali","1234"));
+//        userRepository.save(new User("mohsen","talaati","mositali","1234"));
         return "home";
     }
 }

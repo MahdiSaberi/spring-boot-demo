@@ -1,6 +1,8 @@
 package com.example.springbootdemo;
 
+import com.example.springbootdemo.entity.Address;
 import com.example.springbootdemo.entity.User;
+import com.example.springbootdemo.repository.UserRepository;
 import com.example.springbootdemo.service.UserService;
 import com.example.springbootdemo.service.dto.UserSearch;
 import com.example.springbootdemo.service.impl.UserServiceImpl;
@@ -13,6 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import javax.persistence.criteria.Predicate;
+import java.util.HashSet;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -24,14 +27,22 @@ public class SpringBootDemoApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootDemoApplication.class, args);
 
-        UserService userService = context.getBean(UserService.class);
+        UserRepository userRepository = context.getBean(UserRepository.class);
 
-        List<User> users = userService.findAllByAdvanceSearch(new UserSearch("Glenn", null, null, null));
+//        List<User> users = userService.findAllByAdvanceSearch(new UserSearch("Glenn", null, null, null));
+//
+//        users.forEach(user -> {
+//            System.out.println(user.getFirstName());
+//        });
 
-        users.forEach(user -> {
-            System.out.println(user.getFirstName());
-        });
+        List<User> users = userRepository.findAll();
 
+//        users.forEach(user -> {
+//            user.setAddressSet(new HashSet<>());
+//            user.getAddressSet().add(new Address(faker.address().streetAddress(),faker.address().zipCode()));
+//        });
+
+//        userRepository.saveAll(users);
 
     }
 
