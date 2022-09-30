@@ -3,6 +3,7 @@ package com.example.springbootdemo.entity;
 import com.example.springbootdemo.base.entity.BaseEntity;
 import lombok.*;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.data.jpa.repository.EntityGraph;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -27,4 +28,13 @@ public class User extends BaseEntity<Long> {
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "user_id")
     private Set<Address> addressSet;
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", addressSet=" + addressSet +
+                '}';
+    }
 }

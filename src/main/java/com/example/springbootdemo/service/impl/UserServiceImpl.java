@@ -5,12 +5,10 @@ import com.example.springbootdemo.entity.User;
 import com.example.springbootdemo.repository.UserRepository;
 import com.example.springbootdemo.service.UserService;
 import com.example.springbootdemo.service.dto.UserSearch;
-import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.criteria.CriteriaBuilder;
-import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
 import java.util.ArrayList;
@@ -42,6 +40,16 @@ public class UserServiceImpl extends BaseServiceImpl<User,Long, UserRepository> 
             
             return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
         });
+    }
+
+    @Override
+    public List<User> findAll() {
+        return repository.findAll();
+    }
+
+    @Override
+    public void printUser(){
+        findAll().forEach(System.out::println);
     }
 
 

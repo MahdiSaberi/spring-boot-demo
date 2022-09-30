@@ -27,22 +27,10 @@ public class SpringBootDemoApplication {
     public static void main(String[] args) {
         ConfigurableApplicationContext context = SpringApplication.run(SpringBootDemoApplication.class, args);
 
-        UserRepository userRepository = context.getBean(UserRepository.class);
+        UserService userService = context.getBean(UserService.class);
 
-//        List<User> users = userService.findAllByAdvanceSearch(new UserSearch("Glenn", null, null, null));
-//
-//        users.forEach(user -> {
-//            System.out.println(user.getFirstName());
-//        });
+        userService.printUser();
 
-        List<User> users = userRepository.findAll();
-
-//        users.forEach(user -> {
-//            user.setAddressSet(new HashSet<>());
-//            user.getAddressSet().add(new Address(faker.address().streetAddress(),faker.address().zipCode()));
-//        });
-
-//        userRepository.saveAll(users);
 
     }
 

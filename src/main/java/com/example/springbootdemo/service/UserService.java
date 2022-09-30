@@ -11,4 +11,8 @@ public interface UserService extends BaseService<User,Long> {
     User getByUsername(String username);
 
     List<User> findAllByAdvanceSearch(UserSearch userSearch);
+
+    List<User> findAll();
+
+    void printUser();
 }

@@ -5,8 +5,11 @@ import com.example.springbootdemo.entity.User;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
+import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
+
+import java.util.List;
 
 
 public interface UserRepository extends BaseRepository<User,Long> {
@@ -18,4 +21,8 @@ public interface UserRepository extends BaseRepository<User,Long> {
 
     @Override
     Page<User> findAll(Specification<User> spec, Pageable pageable);
+
+    @Override
+    @EntityGraph(attributePaths = {"addressSet"})
+    List<User> findAll();
 }
