@@ -80,4 +80,8 @@ public class UserServiceImpl extends BaseServiceImpl<User,Long, UserRepository> 
             predicates.add(criteriaBuilder.like(root.get("password"),"%" + password + "%"));
     }
 
+    @Override
+    public User findById(Long id) {
+        return repository.findById(id).get();
+    }
 }

@@ -15,8 +15,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
 import javax.persistence.criteria.Predicate;
-import java.util.HashSet;
-import java.util.List;
+import java.util.*;
 import java.util.stream.IntStream;
 
 @SpringBootApplication
@@ -25,11 +24,10 @@ public class SpringBootDemoApplication {
     private static Faker faker = new Faker();
 
     public static void main(String[] args) {
-        ConfigurableApplicationContext context = SpringApplication.run(SpringBootDemoApplication.class, args);
+        SpringApplication.run(SpringBootDemoApplication.class, args);
 
-        UserService userService = context.getBean(UserService.class);
 
-        userService.printUser();
+
 
 
     }

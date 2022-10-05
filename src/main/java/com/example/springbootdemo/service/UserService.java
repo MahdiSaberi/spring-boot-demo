@@ -15,4 +15,6 @@ public interface UserService extends BaseService<User,Long> {
     List<User> findAll();
 
     void printUser();
+
+    User findById(Long id);
 }
