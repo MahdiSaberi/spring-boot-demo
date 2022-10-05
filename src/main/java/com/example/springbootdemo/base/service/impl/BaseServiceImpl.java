@@ -43,4 +43,10 @@ public class BaseServiceImpl<E extends BaseEntity<ID>,ID extends Serializable, R
     public Page findAll(Pageable pageable) {
         return repository.findAll(pageable);
     }
+
+    @Override
+    @Transactional
+    public E findById(ID id) {
+        return repository.findById(id).get();
+    }
 }
