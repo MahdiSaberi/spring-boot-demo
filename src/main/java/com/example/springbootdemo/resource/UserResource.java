@@ -36,7 +36,7 @@ public class UserResource {
         User user = userService.findById(id);
 //        UserBriefDTO userBriefDTO = new UserBriefDTO();
 //        BeanUtils.copyProperties(user,userBriefDTO);
-        return userMapper.convertUserToBriefDTO(user);
+        return userMapper.convertEntityToDTO(user);
     }
 
     @GetMapping("/search")

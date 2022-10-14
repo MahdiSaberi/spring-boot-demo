@@ -36,23 +36,7 @@ public class BaseResource<E extends BaseEntity<ID>,
                         )
                 )
         );
-        /*if (optional.isPresent()) {
-            return ResponseEntity.ok(
-                    baseMapper.convertEntityToDTO(
-                            optional.get()
-                    )
-            );
-        } else {
-            HttpHeaders headers = new HttpHeaders();
-            headers.add("test", "test");
-            return ResponseEntity.notFound().headers(headers)
-                    .build();
-        }*/
-        /*return optional.map(e -> ResponseEntity.ok(
-                baseMapper.convertEntityToDTO(
-                        e
-                )
-        )).orElseGet(() -> ResponseEntity.notFound().build());*/
+
     }
 
     @PostMapping

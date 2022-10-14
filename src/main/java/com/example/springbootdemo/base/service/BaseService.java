@@ -10,5 +10,8 @@ public interface BaseService<E,ID> {
     long count();
     void deleteById(ID id);
     Page findAll(Pageable pageable);
+
+    List<E> findAll();
+
     E findById(ID id);
 }
